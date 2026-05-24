@@ -1355,12 +1355,12 @@ h1 {
 
   .quiz {
     gap: 8px;
-    padding: 10px;
+    padding: 8px;
   }
 
   .quiz-sheet {
-    gap: 10px;
-    padding: 12px;
+    gap: 8px;
+    padding: 10px;
     border-width: 3px;
     box-shadow: 3px 3px 0 var(--line);
   }
@@ -1389,13 +1389,30 @@ h1 {
   }
 
   .question-area {
-    grid-template-columns: minmax(0, 1fr) 92px;
-    gap: 10px;
+    grid-template-columns: minmax(0, 1fr) 86px;
+    grid-template-areas:
+      "copy buddy"
+      "options options";
+    gap: 8px;
+  }
+
+  .question-area > div {
+    display: contents;
+  }
+
+  .question-copy {
+    grid-area: copy;
+    min-height: 112px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    padding: 9px 10px;
+    background: #fffdf0;
+    box-shadow: 2px 2px 0 var(--line);
   }
 
   .question-meta {
     min-height: 24px;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
     border-width: 2px;
     padding: 0 7px;
     font-size: 11px;
@@ -1404,38 +1421,41 @@ h1 {
 
   .question-copy h2 {
     margin-bottom: 6px;
-    font-size: 21px;
+    font-size: 19px;
     line-height: 1.15;
     text-shadow: 1px 1px 0 #ffffff;
   }
 
   .question-copy p {
     font-size: 12px;
-    line-height: 1.42;
+    line-height: 1.36;
   }
 
   .question-buddy {
-    min-height: 118px;
+    grid-area: buddy;
+    min-height: 112px;
     border-width: 2px;
+    background: #b8c9ff;
     box-shadow: 2px 2px 0 var(--line);
   }
 
   .question-buddy .fruit-character.medium {
-    width: 88px;
+    width: 78px;
   }
 
   .options {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    margin-top: 10px;
+    grid-area: options;
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin-top: 0;
   }
 
   .option {
-    grid-template-columns: 32px minmax(0, 1fr);
-    gap: 8px;
-    min-height: 74px;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 10px;
+    min-height: 56px;
     border-width: 2px;
-    padding: 9px;
+    padding: 8px 36px 8px 10px;
     box-shadow: 2px 2px 0 var(--line);
   }
 
@@ -1445,11 +1465,13 @@ h1 {
   }
 
   .option::after {
-    right: 8px;
-    bottom: 7px;
+    top: 50%;
+    right: 12px;
+    bottom: auto;
     width: 10px;
     height: 10px;
     border-width: 2px;
+    transform: translateY(-50%);
   }
 
   .option.is-selected {
@@ -1457,22 +1479,22 @@ h1 {
   }
 
   .choice-blob {
-    width: 32px;
-    height: 29px;
+    width: 36px;
+    height: 34px;
     border-width: 2px;
-    font-size: 12px;
+    font-size: 14px;
     box-shadow: 1px 1px 0 var(--line);
   }
 
   .option strong {
-    margin-bottom: 3px;
-    font-size: 13px;
-    line-height: 1.22;
+    margin-bottom: 2px;
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .option span:last-child {
     font-size: 11px;
-    line-height: 1.32;
+    line-height: 1.26;
   }
 
   .quiz-actions {
@@ -1536,7 +1558,6 @@ h1 {
   }
 
   .headline p,
-  .question-copy p,
   .result-title p,
   .insight p,
   .share-card p {
